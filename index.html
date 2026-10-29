@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Guyël Massissa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #080e18;
+            color: #d1e8ff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* En-tête futuriste */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            border: 1px solid #00f0ff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #00f0ff;
+            font-size: 2em;
+            text-shadow: 0 0 10px #00f0ff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #70a1ff;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        /* Cartes de sections */
+        .card {
+            background: #0d1b2a;
+            border-left: 4px solid #00f0ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #00f0ff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #00f0ff;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(0, 240, 255, 0.1);
+            color: #00f0ff;
+            border: 1px solid #00f0ff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 4px 2px;
+        }
+
+        /* Bouton Contact */
+        .btn-contact {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #00f0ff;
+            color: #080e18;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-contact:hover {
+            background: #70a1ff;
+            box-shadow: 0 0 25px rgba(112, 161, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Guyël Massissa</h1>
+            <p class="subtitle">> Technicien Informatique & Réseaux (CIEL)</p>
+        </header>
+
+        <div class="card">
+            <h2>💻 À Propos</h2>
+            <p>Étudiant passionné par la cybersécurité, l'infrastructure réseau et le matériel informatique. Déterminé à développer des solutions techniques performantes et fiables.</p>
+        </div>
+
+        <div class="card">
+            <h2>🛠️ Compétences Techniques</h2>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Câblage VDI / RJ45</span>
+                <span class="tag">Fibre Optique</span>
+                <span class="tag">Diagnostics IP & Ping</span>
+                <span class="tag">Maintenance Hardware PC</span>
+                <span class="tag">Windows / Linux</span>
+            </div>
+            <ul>
+                <li>Installation et brassage de baies de brassage réseau</li>
+                <li>Déploiement d'OS et remplacement de composants matériels</li>
+                <li>Tests de continuité et diagnostic avec multimètre / tester</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>💼 Expérience Professionnelle</h2>
+            <h3 style="color: #70a1ff; font-size: 1em;">Stagiaire Informatique — D.M.L. Informatique</h3>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 8px;">Juin - Juillet 2026</p>
+            <ul>
+                <li>Maintenance matérielle et logicielle sur parc informatique</li>
+                <li>Remplacement de composants (RAM, SSD, pâte thermique)</li>
+                <li>Diagnostic réseau et câblage de baies VDI</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📫 Contact</h2>
+            <a href="mailto:ton-email@gmail.com" class="btn-contact">ME CONTACTER PAR EMAIL</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
