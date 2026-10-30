@@ -2,155 +2,820 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b12">
-<meta name="description" content="Portfolio de Guyël Massissa, étudiant en Première Bac Pro CIEL.">
-<title>Guyël Massissa — Portfolio CIEL</title>
-<style>
-:root{--dark:#080b12;--blue:#2636d9;--cyan:#00d9f5;--light:#f4f5f8;--text:#202638}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:82px}
-body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--light);color:var(--text);line-height:1.65}
-a{color:inherit;text-decoration:none}
-.container{width:min(1160px,calc(100% - 40px));margin:auto}
-.site-header{position:sticky;top:0;z-index:100;background:#fffffff5;border-bottom:1px solid #e6e8ef;backdrop-filter:blur(12px)}
-.nav-wrap{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.4px}
-.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:var(--blue);color:white}
-.brand-name{font-size:16px;color:#111827}.brand-name span{color:var(--blue)}
-.nav-links{display:flex;align-items:center;gap:25px;list-style:none}
-.nav-links a{font-size:14px;font-weight:650;color:#30384b}
-.nav-links a:hover{color:var(--blue)}
-.nav-links .nav-contact{background:var(--blue);color:white;padding:10px 18px;border-radius:7px}
-.menu-toggle{display:none;border:0;background:transparent;font-size:28px;cursor:pointer}
-.hero{color:white;background:radial-gradient(circle at 84% 40%,#2636d955,transparent 31%),linear-gradient(115deg,#080b12,#111a31)}
-.hero-inner{min-height:570px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:55px;padding:75px 0}
-.eyebrow,.section-kicker{color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:850}
-.eyebrow{margin-bottom:18px}
-h1{font-size:clamp(40px,5.4vw,66px);line-height:1.08;letter-spacing:-2px}
-h1 span{color:var(--cyan)}
-.hero h2{color:#b7c7ff;font-size:21px;font-weight:550;margin:18px 0}
-.hero-intro{color:#d0d7e6;max-width:660px}
-.hero-points{list-style:none;margin:23px 0 30px}
-.hero-points li{font-size:14px;color:#e0e7f5;margin:8px 0}
-.hero-points li:before{content:"✓";color:var(--cyan);margin-right:11px}
-.actions{display:flex;gap:13px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:7px;font-size:14px;font-weight:750;transition:.2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--cyan);color:#07111c}
-.btn-outline{border:1px solid #8ea0c8;color:white}
-.hero-panel{min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;border:1px solid #00d9f54a;border-radius:18px;background:#00d9f512}
-.tech-symbol{width:110px;height:110px;border-radius:25px;display:grid;place-items:center;margin-bottom:22px;color:var(--cyan);font-size:43px;border:1px solid #00d9f566;background:#00d9f512}
-.hero-panel strong{font-size:20px}.hero-panel span{color:#aab8d3;font-size:13px;margin-top:7px}
-section.content-section{padding:78px 0}
-.section-heading{text-align:center;max-width:720px;margin:0 auto 38px}
-.section-kicker{color:var(--blue)}
-.section-heading h2{font-size:clamp(28px,4vw,37px);color:#111827;margin:8px 0}
-.section-heading p{color:#687187;font-size:15px}
-.about-section,.contact-section{background:white}
-.about-card{max-width:930px;margin:auto;padding:32px 35px;border-left:4px solid var(--blue);background:#f7f8fc;border-radius:0 12px 12px 0}
-.about-card p{color:#4d566a}
-.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.tag{padding:6px 12px;color:#2636b9;background:#e9ecff;border-radius:30px;font-size:12px;font-weight:750}
-.skills-section,.education-section{background:#edf0f6}
-.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.skill-card,.info-card{background:white;border:1px solid #e7eaf1;border-radius:12px;padding:27px;transition:.2s}
-.skill-card:hover,.info-card:hover{transform:translateY(-3px);box-shadow:0 15px 35px #18234a12}
-.card-icon{width:46px;height:46px;display:grid;place-items:center;background:#edf0ff;color:var(--blue);border-radius:11px;font-size:22px;margin-bottom:15px}
-.skill-card h3,.info-card h3{font-size:18px;color:#17203a;margin-bottom:8px}
-.skill-card p,.info-card p{font-size:14px;color:#697286}
-.experience-section{background:var(--dark);color:white}
-.experience-section .section-heading h2{color:white}
-.experience-section .section-heading p{color:#aeb8ca}
-.timeline{max-width:900px;margin:auto;display:grid;gap:20px;border-left:2px solid var(--blue);padding-left:25px}
-.timeline-card{position:relative;background:#111827;border:1px solid #28344b;border-radius:12px;padding:25px 28px}
-.timeline-card:before{content:"";position:absolute;left:-34px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px #00d9f51c}
-.timeline-card h3{font-size:19px;color:white}
-.timeline-date{color:var(--cyan);font-size:13px;font-weight:750;margin:4px 0 13px}
-.timeline-card h4{color:#dce6ff;font-size:14px;margin:14px 0 4px}
-.timeline-card p,.timeline-card li{color:#bdc7d8;font-size:13px}
-.timeline-card ul{padding-left:19px}
-.education-list{max-width:850px;margin:auto;display:grid;gap:13px}
-.education-item{background:white;border-radius:10px;padding:19px 23px;border-left:4px solid var(--blue)}
-.education-item strong{display:block;color:#17203a}
-.education-item span{font-size:13px;color:#697286}
-.qualities-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.quality{background:white;border-radius:10px;padding:22px;border:1px solid #e7eaf1}
-.quality h3{font-size:16px;color:#17203a;margin-bottom:6px}
-.quality p{font-size:14px;color:#697286}
-.contact-box{max-width:850px;margin:auto;padding:42px;border-radius:16px;text-align:center;color:white;background:radial-gradient(circle at top right,#2636d9aa,transparent 42%),#0b1020}
-.contact-box h2{font-size:34px;margin-bottom:9px}
-.contact-box p{color:#c4cce0;margin:0 auto 22px;max-width:600px}
-.contact-box .btn{background:var(--cyan);color:#07111c}
-.contact-email{display:block;color:#d8e5ff;font-size:14px;margin-top:14px}
-footer{background:#05070d;color:#8792a8;text-align:center;padding:22px;font-size:12px}
-footer strong{color:#e1e8f5}
-@media(max-width:800px){
-.menu-toggle{display:block}
-.nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:white;padding:18px 22px 22px;flex-direction:column;align-items:stretch;gap:8px;border-bottom:1px solid #e6e8ef}
-.nav-links.open{display:flex}.nav-links a{display:block;padding:9px}
-.nav-links .nav-contact{text-align:center;margin-top:5px}
-.hero-inner{grid-template-columns:1fr;gap:35px;padding:60px 0}
-.hero-panel{min-height:235px}
-}
-@media(max-width:560px){
-.container{width:calc(100% - 32px)}
-section.content-section{padding:60px 0}
-.cards-grid,.qualities-grid{grid-template-columns:1fr}
-.actions{flex-direction:column;align-items:stretch}
-.btn{text-align:center}
-.about-card{padding:24px 21px}
-.timeline{padding-left:20px}
-.timeline-card{padding:22px 19px}
-.timeline-card:before{left:-29px}
-.contact-box{padding:32px 20px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Portfolio de Guirel Massana, élève en Première Bac Pro CIEL.">
+  <title>Guirel Massana | Portfolio CIEL</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: #101e31;
+      --surface-light: #172a43;
+      --blue: #2685ff;
+      --cyan: #38d9ff;
+      --text: #edf5ff;
+      --muted: #a7b7ca;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,17,31,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 17px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      max-width: 1150px;
+      min-height: 580px;
+      margin: auto;
+      padding: 100px 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid rgba(56,217,255,.3);
+      border-radius: 30px;
+      color: var(--cyan);
+      background: rgba(56,217,255,.08);
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 75px);
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 21px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      color: #06111f;
+      background: var(--cyan);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 24px;
+    }
+
+    .section-title {
+      margin-bottom: 35px;
+    }
+
+    .section-title small {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 15px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56,217,255,.4);
+    }
+
+    .card h3 {
+      color: var(--cyan);
+      font-size: 19px;
+      margin-bottom: 12px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill {
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--blue);
+      padding-left: 25px;
+      display: grid;
+      gap: 25px;
+    }
+
+    .timeline-item {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 27px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .date {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 10px;
+    }
+
+    .timeline-item p,
+    .timeline-item li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .timeline-item ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #102744, #102039);
+      border: 1px solid rgba(56,217,255,.2);
+      padding: 35px;
+      border-radius: 18px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    /* CHATBOT */
+
+    .chat-toggle {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 999;
+      width: 62px;
+      height: 62px;
+      border: none;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #06111f;
+      font-size: 27px;
+      cursor: pointer;
+      box-shadow: 0 5px 25px rgba(0,0,0,.4);
+    }
+
+    .chat-window {
+      position: fixed;
+      right: 25px;
+      bottom: 100px;
+      z-index: 999;
+      width: min(370px, calc(100vw - 30px));
+      height: 490px;
+      max-height: calc(100vh - 130px);
+      display: none;
+      flex-direction: column;
+      background: #101e31;
+      border: 1px solid rgba(56,217,255,.3);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    }
+
+    .chat-window.open {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 17px;
+      background: #172a43;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      color: var(--cyan);
+      font-size: 16px;
+    }
+
+    .chat-header p {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      max-width: 88%;
+      padding: 11px 13px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background: #20344e;
+      color: var(--text);
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: #087eb4;
+      color: white;
+    }
+
+    .chat-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 12px 12px;
+    }
+
+    .chat-suggestions button {
+      border: 1px solid rgba(56,217,255,.35);
+      background: #172a43;
+      color: var(--cyan);
+      border-radius: 20px;
+      padding: 6px 10px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .chat-form {
+      display: flex;
+      padding: 12px;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    .chat-form input {
+      min-width: 0;
+      flex: 1;
+      padding: 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      outline: none;
+      background: #07111f;
+      color: white;
+    }
+
+    .chat-form button {
+      padding: 0 14px;
+      border: none;
+      border-radius: 8px;
+      background: var(--cyan);
+      color: #06111f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 75px 22px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 20px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+      .chat-window {
+        right: 15px;
+        bottom: 90px;
+      }
+
+      .chat-toggle {
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-<div class="container nav-wrap">
-<a class="brand" href="#accueil" aria-label="Accueil"><span class="brand-mark">GM</span><span class="brand-name">GUYËL <span>MASSISSA</span></span></a>
-<button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
-<nav aria-label="Navigation principale">
-<ul class="nav-links" id="navLinks">
-<li><a href="#apropos">Profil</a></li>
-<li><a href="#competences">Compétences</a></li>
-<li><a href="#experience">Expériences</a></li>
-<li><a href="#formation">Formation</a></li>
-<li><a class="nav-contact" href="#contact">Contact</a></li>
-</ul>
-</nav>
-</div>
-</header>
 
-<main>
-<section class="hero" id="accueil">
-<div class="container hero-inner">
-<div>
-<div class="eyebrow">Portfolio étudiant · Première Bac Pro CIEL</div>
-<h1>Guyël <span>Massissa</span></h1>
-<h2>Informatique · Réseaux · Cybersécurité · Électronique</h2>
-<p class="hero-intro">Élève en Première Bac Pro CIEL au lycée polyvalent Simon Veil à Noisiel, je m'intéresse à l'informatique, aux réseaux, à la cybersécurité et à l'électronique. Je souhaite continuer à développer mes compétences au contact de professionnels.</p>
-<ul class="hero-points">
-<li>Diagnostic et maintenance de postes informatiques</li>
-<li>Installation de systèmes et préparation de matériel</li>
-<li>Câblage RJ45, brassage et équipements réseau</li>
-</ul>
-<div class="actions"><a class="btn btn-primary" href="#contact">Me contacter</a><a class="btn btn-outline" href="#experience">Voir mes expériences</a></div>
-</div>
-<div class="hero-panel"><div class="tech-symbol">⌘</div><strong>CIEL — Systèmes & Réseaux</strong><span>Cybersécurité, informatique et réseaux</span></div>
-</div>
-</section>
+  <header>
+    <nav>
+      <a href="#accueil" class="logo">GM.</a>
 
-<section class="content-section about-section" id="apropos">
-<div class="container">
-<div class="section-heading"><span class="section-kicker">Présentation</span><h2>Profil</h2><p>Mon parcours et mes objectifs professionnels.</p></div>
-<div class="about-card">
-<p>Élève en Bac Pro CIEL, je m'intéresse aux domaines de l'informatique, de la cybersécurité et de l'électronique. Mes expériences en entreprise m'ont permis de découvrir la maintenance informatique, l'installation de systèmes, le câblage réseau et la relation client. Motivé et désireux d'acquérir de nouvelles expériences professionnelles, je souhaite m'investir sur le terrain et apprendre aux côtés de professionnels.</p>
-<div class="tags"><span class="tag">Première Bac Pro CIEL</span><span class="tag">Maintenance informatique</span><span class="tag">Réseaux</span><span class="tag">Électronique</span></div>
+      <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#profil">Profil</a>
+        <a href="#competences">Compétences</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#formation">Formation</a>
+        <a href="#qualites">Qualités</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="hero" id="accueil">
+      <div class="hero-content">
+        <span class="tag">ÉTUDIANT EN INFORMATIQUE ET RÉSEAUX</span>
+
+        <h1>Bonjour, je suis <span>Guirel Massana</span></h1>
+
+        <p>
+          Élève en Première Bac Pro CIEL, passionné par l'informatique,
+          les réseaux, la maintenance informatique et les nouvelles technologies.
+          Je développe progressivement mes compétences techniques et professionnelles.
+        </p>
+
+        <div class="buttons">
+          <a href="#profil" class="btn btn-primary">Découvrir mon profil</a>
+          <a href="#experiences" class="btn btn-secondary">Mes expériences</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="profil">
+      <div class="section-title">
+        <small>Présentation</small>
+        <h2>Mon profil</h2>
+        <p>Mon parcours et mes domaines d'intérêt.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>À propos de moi</h3>
+          <p>
+            Je suis élève en Première Bac Pro CIEL
+            (Cybersécurité, Informatique et Réseaux, Électronique).
+            Je m'intéresse particulièrement au fonctionnement des ordinateurs,
+            à la configuration des systèmes et aux infrastructures réseau.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Mon objectif professionnel</h3>
+          <p>
+            Développer mes connaissances dans les domaines de l'informatique,
+            des réseaux et de la cybersécurité, acquérir de l'expérience
+            sur le terrain et poursuivre ma progression dans les métiers
+            du numérique.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences">
+      <div class="section-title">
+        <small>Savoir-faire</small>
+        <h2>Mes compétences</h2>
+        <p>Compétences abordées en formation et pendant mes expériences.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Maintenance informatique</h3>
+          <ul>
+            <li>Diagnostic de pannes informatiques</li>
+            <li>Nettoyage et entretien de PC</li>
+            <li>Remplacement de composants</li>
+            <li>Installation de mémoire RAM et SSD</li>
+            <li>Application de pâte thermique</li>
+            <li>Préparation et vérification de matériel</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Systèmes d'exploitation</h3>
+          <ul>
+            <li>Installation de Windows 7, 10 et 11</li>
+            <li>Découverte de macOS</li>
+            <li>Installation et mise à jour de pilotes</li>
+            <li>Nettoyage de logiciels malveillants</li>
+            <li>Sauvegarde et transfert de données</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Réseaux informatiques</h3>
+          <ul>
+            <li>Fabrication de câbles RJ45</li>
+            <li>Test et vérification de câbles réseau</li>
+            <li>Découverte des baies informatiques</li>
+            <li>Repérage et étiquetage de câblage</li>
+            <li>Brassage dans une baie VDI</li>
+            <li>Découverte des switchs et routeurs</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Notions techniques CIEL</h3>
+          <ul>
+            <li>Découverte de l'adressage IPv4</li>
+            <li>Notions de masques de sous-réseau</li>
+            <li>Découverte de la cybersécurité</li>
+            <li>Notions d'électronique</li>
+            <li>Découverte des équipements numériques</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:25px">
+        <h3 style="margin-bottom:15px;color:var(--cyan)">
+          Outils et environnements
+        </h3>
+
+        <div class="skills">
+          <span class="skill">Windows 7</span>
+          <span class="skill">Windows 10</span>
+          <span class="skill">Windows 11</span>
+          <span class="skill">macOS</span>
+          <span class="skill">Réseaux RJ45</span>
+          <span class="skill">Matériel informatique</span>
+          <span class="skill">Maintenance PC</span>
+          <span class="skill">IPv4</span>
+          <span class="skill">Baie VDI</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiences">
+      <div class="section-title">
+        <small>Expériences professionnelles</small>
+        <h2>Mes stages et immersions</h2>
+        <p>Les expériences qui ont contribué à ma découverte du monde professionnel.</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="date">1er juin – 10 juillet 2026 · 6 semaines</div>
+          <h3>Stage – D.M.L. Informatique</h3>
+          <p>
+            Découverte et pratique de différentes activités de maintenance informatique et de réseau.
+          </p>
+
+          <ul>
+            <li>Diagnostic et maintenance d'ordinateurs.</li>
+            <li>Nettoyage de composants et entretien de matériel.</li>
+            <li>Remplacement de SSD et de mémoire RAM.</li>
+            <li>Installation de systèmes d'exploitation.</li>
+            <li>Installation de pilotes et nettoyage de logiciels malveillants.</li>
+            <li>Sauvegarde et transfert de données.</li>
+            <li>Fabrication et test de câbles RJ45.</li>
+            <li>Étiquetage et brassage dans une baie VDI.</li>
+            <li>Découverte de switchs, routeurs, box et imprimantes.</li>
+            <li>Préparation, réception et conditionnement de matériel.</li>
+            <li>Accueil et explications auprès des clients.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">20 – 24 novembre 2024</div>
+          <h3>Stage d'immersion – Léonard / Groupe VINCI</h3>
+          <p>
+            Immersion à Paris dans un environnement consacré à l'innovation,
+            à la découverte des métiers et aux nouvelles technologies.
+          </p>
+
+          <ul>
+            <li>Découverte des métiers d'ingénieur en intelligence artificielle.</li>
+            <li>Participation à des ateliers et activités encadrées.</li>
+            <li>Découverte de l'innovation et de ses applications.</li>
+            <li>Découverte du travail en équipe et des environnements professionnels.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="formation">
+      <div class="section-title">
+        <small>Parcours scolaire</small>
+        <h2>Ma formation</h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="date">En cours</div>
+          <h3>Première Bac Professionnel CIEL</h3>
+          <p>Lycée des Technologies Numériques</p>
+          <p>Cybersécurité, Informatique et Réseaux, Électronique.</p>
+          <p><em>Nom d'établissement fictif utilisé pour préserver l'anonymat.</em></p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">Année précédente</div>
+          <h3>Seconde professionnelle MTNE</h3>
+          <p>
+            Métiers des Transitions Numérique et Énergétique.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">2024 – 2025</div>
+          <h3>Diplôme national du brevet</h3>
+          <p>Établissement non communiqué.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="qualites">
+      <div class="section-title">
+        <small>Personnalité</small>
+        <h2>Mes qualités et langues</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Qualités professionnelles</h3>
+          <ul>
+            <li>Ponctualité</li>
+            <li>Politesse</li>
+            <li>Rigueur et respect des consignes de sécurité</li>
+            <li>Esprit d'équipe</li>
+            <li>Polyvalence</li>
+            <li>Capacité d'apprentissage</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Langues</h3>
+          <ul>
+            <li>Français : courant</li>
+            <li>Anglais : niveau scolaire</li>
+            <li>Espagnol : niveau scolaire</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <small>Prise de contact</small>
+        <h2>Me contacter</h2>
+      </div>
+
+      <div class="contact-box">
+        <h3>Vous souhaitez échanger avec moi ?</h3>
+        <p>
+          Pour toute question concernant mon parcours, mes compétences
+          ou mes expériences, vous pouvez utiliser le chatbot de ce portfolio.
+        </p>
+        <p>
+          Téléphone : 06 XX XX XX XX
+          <br>
+          <small>Coordonnée fictive, non fonctionnelle.</small>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Guirel Massana — Portfolio étudiant CIEL.</p>
+    <p>Identité et établissement présentés sous des noms fictifs.</p>
+  </footer>
+
+  <!-- FENÊTRE DU CHATBOT -->
+
+  <div class="chat-window" id="chatWindow">
+
+    <div class="chat-header">
+      <div>
+        <h3>Assistant du portfolio</h3>
+        <p>Assistant automatique · Disponible</p>
+      </div>
+
+      <button class="chat-close" id="chatClose" aria-label="Fermer le chatbot">
+        ×
+      </button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="message bot-message">
+        Bonjour ! Je suis l'assistant du portfolio de Guirel Massana.
+        Je peux répondre à vos questions sur son profil, ses compétences,
+        sa formation et ses expériences.
+      </div>
+    </div>
+
+    <div class="chat-suggestions">
+      <button type="button" data-question="Présente-moi">Profil</button>
+      <button type="button" data-question="Quelles sont ses compétences ?">Compétences</button>
+      <button type="button" data-question="Parle-moi de ses stages">Stages</button>
+      <button type="button" data-question="Quelle est sa formation ?">Formation</button>
+    </div>
+
+    <form class="chat-form" id="chatForm">
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Écrivez votre question..."
+        autocomplete="off"
+        maxlength="300"
+        aria-label="Votre question"
+        required
+      >
+      <button type="submit">Envoyer</button>
+    </form>
+
+  </div>
+
+  <button
+    class="chat-toggle"
+    id="chatToggle"
+    aria-label="Ouvrir le chatbot"
+    aria-expanded="false"
+  >
+    💬
+  </button>
+
+  <script>
+    const chatWindow = document.getElementById("chatWindow");
+    const chatToggle = document.getElementById("chatToggle");
+    const chatClose = document.getElementById("chatClose");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatForm = document.getElementById("chatForm");
+    const cÉlectronique</span></div>
 </div>
 </div>
 </section>
