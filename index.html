@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Guyël Massissa</title>
+    <title>Guyël Massissa | Technicien Informatique & Réseaux</title>
     <style>
         * {
             box-sizing: border-box;
@@ -13,21 +13,21 @@
         }
 
         body {
-            background-color: #080e18;
+            background-color: #080e18; /* Ta couleur de fond conservée */
             color: #d1e8ff;
             line-height: 1.6;
             padding: 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* En-tête futuriste */
+        /* En-tête / Hero Section */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             background: linear-gradient(135deg, #0d1b2a, #1b263b);
             border: 1px solid #00f0ff;
             border-radius: 12px;
@@ -37,15 +37,23 @@
 
         h1 {
             color: #00f0ff;
-            font-size: 2em;
+            font-size: 2.2em;
             text-shadow: 0 0 10px #00f0ff;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .subtitle {
             color: #70a1ff;
-            font-size: 1.1em;
+            font-size: 1.2em;
             font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
 
         /* Cartes de sections */
@@ -53,7 +61,7 @@
             background: #0d1b2a;
             border-left: 4px solid #00f0ff;
             border-radius: 8px;
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
@@ -61,10 +69,38 @@
         h2 {
             color: #00f0ff;
             margin-bottom: 15px;
-            font-size: 1.3em;
+            font-size: 1.4em;
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            padding-bottom: 8px;
+        }
+
+        /* Grille de compétences inspirée du modèle */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .skill-item h3 {
+            color: #00f0ff;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+
+        .skill-item p {
+            font-size: 0.9em;
+            opacity: 0.85;
         }
 
         ul {
@@ -74,7 +110,8 @@
         li {
             position: relative;
             padding-left: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 0.95em;
         }
 
         li::before {
@@ -84,35 +121,47 @@
             color: #00f0ff;
         }
 
-        .tag {
-            display: inline-block;
-            background: rgba(0, 240, 255, 0.1);
-            color: #00f0ff;
-            border: 1px solid #00f0ff;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin: 4px 2px;
+        /* Expérience */
+        .job-title {
+            color: #70a1ff;
+            font-size: 1.1em;
+            font-weight: 600;
         }
 
-        /* Bouton Contact */
-        .btn-contact {
-            display: block;
-            width: 100%;
+        .job-date {
+            font-size: 0.85em;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        /* Formulaire / Contact Pro */
+        .contact-box {
             text-align: center;
+        }
+
+        .btn-contact {
+            display: inline-block;
             background: #00f0ff;
             color: #080e18;
             font-weight: bold;
-            padding: 12px;
+            padding: 12px 30px;
             border-radius: 6px;
             text-decoration: none;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
             transition: 0.3s;
+            margin-top: 10px;
         }
 
         .btn-contact:hover {
             background: #70a1ff;
             box-shadow: 0 0 25px rgba(112, 161, 255, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85em;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -120,47 +169,63 @@
 
     <div class="container">
 
+        <!-- En-tête -->
         <header>
             <h1>Guyël Massissa</h1>
             <p class="subtitle">> Technicien Informatique & Réseaux (CIEL)</p>
+            <p class="hero-desc">L'infrastructure et la sécurité au service de vos performances techniques. Le courant passe bien !</p>
         </header>
 
+        <!-- À Propos -->
         <div class="card">
             <h2>💻 À Propos</h2>
-            <p>Étudiant passionné par la cybersécurité, l'infrastructure réseau et le matériel informatique. Déterminé à développer des solutions techniques performantes et fiables.</p>
+            <p>Étudiant passionné par la cybersécurité, l'infrastructure réseau et le matériel informatique. Déterminé à développer des solutions techniques performantes et fiables, je mets la rigueur au cœur de chaque intervention.</p>
         </div>
 
+        <!-- Compétences Techniques (style structuré en blocs) -->
         <div class="card">
-            <h2>🛠️ Compétences Techniques</h2>
-            <div style="margin-bottom: 15px;">
-                <span class="tag">Câblage VDI / RJ45</span>
-                <span class="tag">Fibre Optique</span>
-                <span class="tag">Diagnostics IP & Ping</span>
-                <span class="tag">Maintenance Hardware PC</span>
-                <span class="tag">Windows / Linux</span>
+            <h2>🛠️ Mes Domaines de Compétences</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Câblage & Réseaux</h3>
+                    <p>Installation et brassage de baies VDI, fibre optique, diagnostics IP & Ping.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Hardware PC & Systèmes</h3>
+                    <p>Maintenance matérielle, déploiement d'OS, environnements Windows et Linux.</p>
+                </div>
             </div>
+
             <ul>
-                <li>Installation et brassage de baies de brassage réseau</li>
-                <li>Déploiement d'OS et remplacement de composants matériels</li>
                 <li>Tests de continuité et diagnostic avec multimètre / tester</li>
+                <li>Remplacement de composants (RAM, SSD, pâte thermique)</li>
+                <li>Sécurisation des réseaux et architectures informatiques</li>
             </ul>
         </div>
 
+        <!-- Expérience Professionnelle -->
         <div class="card">
             <h2>💼 Expérience Professionnelle</h2>
-            <h3 style="color: #70a1ff; font-size: 1em;">Stagiaire Informatique — D.M.L. Informatique</h3>
-            <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 8px;">Juin - Juillet 2026</p>
+            <div class="job-title">Stagiaire Informatique — D.M.L. Informatique</div>
+            <div class="job-date">Juin - Juillet 2026</div>
             <ul>
                 <li>Maintenance matérielle et logicielle sur parc informatique</li>
-                <li>Remplacement de composants (RAM, SSD, pâte thermique)</li>
-                <li>Diagnostic réseau et câblage de baies VDI</li>
+                <li>Remplacement de composants stratégiques (RAM, SSD, pâte thermique)</li>
+                <li>Diagnostic réseau et câblage de baies VDI en milieu professionnel</li>
             </ul>
         </div>
 
-        <div class="card">
-            <h2>📫 Contact</h2>
-            <a href="mailto:ton-email@gmail.com" class="btn-contact">ME CONTACTER PAR EMAIL</a>
+        <!-- Contact -->
+        <div class="card contact-box">
+            <h2>📫 Me Contacter</h2>
+            <p style="margin-bottom: 15px;">Un projet, une question ou une opportunité de stage/alternance ? Discutons-en.</p>
+            <a href="mailto:ton-email@gmail.com" class="btn-contact">ENVOYER UN E-MAIL</a>
         </div>
+
+        <footer>
+            <p>© 2026 - Guyël Massissa | Propulsé par GitHub Pages</p>
+        </footer>
 
     </div>
 
